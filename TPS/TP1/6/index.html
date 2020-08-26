@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Avanzada</title>
+</head>
+<body>
+    <h1>Area de un triangulo</h1>
+    <form id="area-triangulo">
+        <div>
+          <label for="altura">Altura: </label>
+          <input id="altura" type="text">
+        </div>
+        <div>
+          <label for="base">Base: </label>
+          <input id="base" type="text">
+        </div>
+        <div>
+            <button type="submit">Calcular</button>
+        </div>
+      </form>
+      <p id="area"></p>
+      <script>
+          function calcular(evento){
+            evento.preventDefault();
+            let altura = document.querySelector('#altura').value;
+            let base = document.querySelector('#base').value;
+            let area = 0.5 * base * altura;
+            let areaBox = document.querySelector("#area");
+            areaBox.innerHTML = area;
+          }
+
+          let formulario = document.querySelector('#area-triangulo');
+
+          formulario.onsubmit = calcular;
+      </script>
+    </body>
+</html>

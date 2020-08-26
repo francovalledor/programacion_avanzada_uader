@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Avanzada</title>
+</head>
+<body>
+    <h1>Cambiar color del fondo</h1>
+    <button style="background-color: red;" type="button" >ROJO</button>
+    <button style="background-color: green;" type="button" >VERDE</button>
+    <button style="background-color: blue;" type="button" >AZUL</button>
+    <button style="background-color: yellow;" type="button" >AMARILLO</button>
+    
+    <script>
+        function cambiarColor(evento){
+
+            document.bgColor = event.target.style.backgroundColor;
+        }
+
+        botones = document.querySelectorAll('button');
+        botones.forEach(boton => boton.onclick = cambiarColor);
+    </script>
+</body>
+</html>
