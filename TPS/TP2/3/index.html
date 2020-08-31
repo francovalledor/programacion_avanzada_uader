@@ -18,12 +18,12 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-</head>
-
+    </head>
+    
 <body>
 
     <div id="formulario" class="container-sm">
-        <form class="needs-validation" novalidate action="https://www.nasa.gov">
+        <form class="needs-validation" novalidate action="/registro" method="post">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="nombre">Nombre</label>
@@ -56,7 +56,7 @@
                     <label for="telefono">Teléfono</label>
                     <div class="input-group">
                         <input type="tel" maxlength="10" minlength="10" class="form-control" id="telefono" placeholder="Teléfono"
-                            aria-describedby="inputGroupPrepend" required>
+                        aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Teléfono inválido
                         </div>
@@ -97,29 +97,10 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button disabled class="btn btn-primary" id="enviar" type="submit">Enviar</button>
         </form>
     </div>
 
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
+    <script src="js.js"></script>
 </body>
 </html>
