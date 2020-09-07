@@ -51,19 +51,25 @@ var secciones = new Secciones();
 
 secciones.add('home', '/home', 'home.hbs');
 secciones.add('portfolio', '/portfolio/', 'portfolio.hbs');
+secciones.add('portfolio-alt', '/portfolio-alt/', 'portfolio-alt.hbs');
+secciones.add('portfolio-item', '/portfolio-item/', 'portfolio-item.hbs');
+secciones.add('portfolio-masonry', '/portfolio-masonry/', 'portfolio-masonry.hbs');
+secciones.add('portfolio-raw', '/portfolio-raw/', 'portfolio-raw.hbs');
+secciones.add('design-styles', '/design-styles/', 'design-styles.hbs');
+secciones.add('documentation', '/documentation/', 'documentation.hbs');
 secciones.add('blog', '/blog/', 'blog.hbs');
 secciones.add('about', '/about/', 'about.hbs');
 secciones.add('contact', '/contact/', 'contact.hbs');
+secciones.add('blog-post', '/blog-post/', 'blog-post.hbs');
 secciones.add('not_found', '', 'not_found.hbs');
-
 
 app.get('/', (req, res) => res.redirect(secciones.get_ruta('home')));
 
 app.get('/:seccion', (req, res) => {
   if (secciones.has(req.params.seccion)) {
-        return res.render(secciones.get_view(req.params.seccion), DATOS);
+        return res.render(secciones.get_view(req.params.seccion), {DATOS, secciones});
     } else {
-        return res.status(404).render(secciones.get_view('not_found'), DATOS);
+        return res.status(404).render(secciones.get_view('not_found'), {DATOS, secciones});
     }
 });
 
